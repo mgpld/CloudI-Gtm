@@ -1,0 +1,9 @@
+# CLOUDIC=$CloudI-C-API (ex: /usr/local/lib/cloudi-1.7.2/api/c/)
+# GTMUTF8=$gtm_dist (ex: /opt/fis-gtm/V6.3/utf8)
+
+gcc -I${CLOUDIC} \
+    -L${CLOUDIC} -Wl,-rpath=${CLOUDIC} -lcloudi \
+    -I${GTMUTF8} \
+    -L${GTMUTF8} -Wl,-rpath=${GTMUTF8} -lgtmshr \
+    -g -O0 -fexceptions src/gtm_api.c -o bin/gtm_api -Wall -Werror
+
