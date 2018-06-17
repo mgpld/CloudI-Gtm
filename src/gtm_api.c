@@ -127,11 +127,11 @@ static void request(int const command,
     char const ** parameters = cloudi_info_key_value_parse(api_return_value.address, api_return_value.length);
     // @doc Count how many parameters we have.
     for (i = 0; parameters[i]; i++) {
-        // fprintf( stdout, "parameters i: %d, %s\n", (int) i, parameters[i]);
+        // fprintf( stdout, "parameters i: %zu, %s\n", i, parameters[i]);
     }
 
     if (i && (request_size == 0) ) {
-	fprintf( stdout, "Missing arguments: need %d got 0\n", i);
+	fprintf( stdout, "Missing arguments: need %zu got 0\n", i);
 	goto fail;
     }
 
@@ -154,7 +154,7 @@ static void request(int const command,
 
     /* Check that all arguments are present */
     if ( j < i ) {
-	fprintf( stdout, "Missing arguments: need %d got %d\n", i, j);
+	fprintf( stdout, "Missing arguments: need %zu got %zu\n", i, j);
 	goto fail;
     }
 
